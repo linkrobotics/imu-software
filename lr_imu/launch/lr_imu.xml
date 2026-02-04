@@ -1,0 +1,8 @@
+<launch>
+  <node pkg="lr_imu" exec="lr_imu" name="lr_imu_node" namespace="lr_imu">
+  	<param name="port_name" value="/dev/ttyACM0" />
+  	<param name="baud_rate" value="921600" />
+  </node>
+  
+  <node pkg="rviz2" exec="rviz2" name="rviz2_node" args="-d $(find-pkg-share lr_imu)/launch/lr_imu.rviz" />
+</launch>

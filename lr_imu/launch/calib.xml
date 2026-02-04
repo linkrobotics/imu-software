@@ -1,0 +1,9 @@
+<launch>
+  <node pkg="lr_imu" exec="lr_imu_calib" name="lr_imu_calib_node" namespace="lr_imu" output="screen">
+  	<param name="port_name" value="/dev/ttyACM0" />
+  	<param name="baud_rate" value="921600" />
+  	
+  	<param name="calibration_time" value="60" />
+  	<param name="save_calibration_to_flash" value="false" />
+  </node>
+</launch>
