@@ -2,9 +2,9 @@
 
 Description of the folders:
 
-**imu-gui**:	Qt GUI for configuring the IMU hardware (requires Qt6 installed)
+   `imu-gui`:	Qt GUI for configuring the IMU hardware (requires Qt6 installed)
 
-**lr_imu**:	ROS2 driver (for humble)
+   `lr_imu`:	ROS2 driver (for humble)
 
 1. **Installation of Qt GUI (Optional)**
    Follow the steps below to install and run the GUI.
