@@ -30,7 +30,7 @@ find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(Boost REQUIRED COMPONENTS chrono thread)
 find_package(Eigen3 REQUIRED)
-set(EIGEN_INCLUDE_DIRS "/usr/local/include/eigen3")
+#set(EIGEN_INCLUDE_DIRS "/usr/local/include/eigen3")
 
 #set(BOOST_INCLUDE_DIRS "/usr/local/include/boost")
 #set(BOOST_LIBRARIES "/usr/local/lib/libboost_chrono.so" "/usr/local/lib/libboost_thread.so")
