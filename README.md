@@ -1,10 +1,12 @@
-## Link Robotics IMU Software
+# Link Robotics IMU Software
 
 Description of the folders:
 
    `imu-gui`:	Qt GUI for configuring the IMU hardware (requires Qt6 installed)
 
    `lr_imu`:	ROS2 driver (for humble)
+
+## Installation steps
 
 1. **Installation of Qt GUI (Optional)**
    Follow the steps below to install and run the GUI.
