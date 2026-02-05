@@ -8,7 +8,7 @@ Description of the folders:
 
 ## Installation steps
 
-1. **Installation of Qt GUI (Optional)**
+1. **Installation of the Qt GUI (Optional)**
    Follow the steps below to install and run the GUI.
 
    1.1. Define Qt library variables
@@ -20,11 +20,11 @@ Description of the folders:
    1.3. Run the executable
    ```./IMU-GUI```
 
-2. **Compile and install ROS2 driver**
+2. **Compile and install the ROS2 driver**
 
    2.1. Check whether ROS2 humble is installed
 
-   2.2. Copy the files under lr_imu into your ros2 workspace
+   2.2. Copy the files under `lr_imu` into your ros2 workspace
 
    2.3. Change directory to ros2 workspace
    ```cd ros2_ws```
