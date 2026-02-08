@@ -13,7 +13,7 @@ Description of the folders:
 ## Installation steps
 
 1. **Installation of the Qt GUI (Optional)**
-2. 
+ 
    Follow the steps below to install and run the GUI.
 
    1.1. Define Qt library variables
