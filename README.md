@@ -40,6 +40,6 @@ Description of the folders:
    2.5. Start the driver node
    ```ros2 launch lr_imu lr_imu.xml```
 
-   2.6. Start the calibration node (optional)
+   2.6. Start the ROS calibration node (optional)
    ```ros2 launch lr_imu calib.xml```
 
