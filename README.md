@@ -7,8 +7,10 @@ Please calibrate IMU before first use by using magnetometer calibration in GUI.
 Description of the folders:
 
    `imu-gui`:	Qt GUI for configuring the IMU hardware (requires Qt6 installed)
-
+   <img width="1850" height="1053" alt="gui" src="https://github.com/user-attachments/assets/27fdf3d3-889a-4795-a121-b8a9c4d1e43a" />
+   
    `lr_imu`:	ROS2 driver (for humble)
+
 
 ## Installation steps
 
