@@ -1,5 +1,9 @@
 # Link Robotics IMU Software
 
+Please calibrate IMU before first use by using magnetometer calibration in GUI.
+
+
+
 Description of the folders:
 
    `imu-gui`:	Qt GUI for configuring the IMU hardware (requires Qt6 installed)
@@ -9,6 +13,7 @@ Description of the folders:
 ## Installation steps
 
 1. **Installation of the Qt GUI (Optional)**
+2. 
    Follow the steps below to install and run the GUI.
 
    1.1. Define Qt library variables
@@ -20,7 +25,7 @@ Description of the folders:
    1.3. Run the executable
    ```./IMU-GUI```
 
-2. **Compile and install the ROS2 driver**
+3. **Compile and install the ROS2 driver**
 
    2.1. Check whether ROS2 humble is installed
 
