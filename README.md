@@ -16,7 +16,7 @@ Description of the folders:
  
    Follow the steps below to install and run the GUI.
 
-   1.1. Define Qt library variables
+   1.1. Define Qt library env. variables
    ```export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/Qt/6.9.2/gcc_64/lib```
 
    1.2. Change directory to bin 
