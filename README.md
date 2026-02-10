@@ -1,10 +1,21 @@
 # Link Robotics IMU Software
 
-Please calibrate IMU before first use by using magnetometer calibration in GUI.
+This repository includes GUI and ROS2 driver of the IMU.
+
+Please calibrate IMU before first use by using the magnetometer calibration section in the main GUI.
+
+## Requirements
+
+- Ubuntu 22.04
+
+- Boost 1.72
+
+- Qt6
+
+- ROS2 humble
 
 
-
-Description of the folders:
+## Description of the folders:
 
    `imu-gui`:	Qt GUI for configuring the IMU hardware (requires Qt6 installed)
    
