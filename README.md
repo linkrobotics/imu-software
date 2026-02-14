@@ -54,6 +54,4 @@ Please calibrate IMU before first use by using the magnetometer calibration sect
    2.5. Start the driver node
    ```ros2 launch lr_imu lr_imu.xml```
 
-   2.6. Start the ROS calibration node (optional)
-   ```ros2 launch lr_imu calib.xml```
 
