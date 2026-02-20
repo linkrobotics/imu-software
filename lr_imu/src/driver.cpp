@@ -79,7 +79,7 @@ class lrImuDriver : public rclcpp::Node
 		
 		////////////////////////////////////////
 		// device config
-		imuPtr->setZeroThreshold();
+
 		
 		const bool config = true;
 
@@ -138,7 +138,7 @@ class lrImuDriver : public rclcpp::Node
 			}
 		}
 		
-
+		imuPtr->setZeroThreshold();
 			
 		RCLCPP_INFO(this->get_logger(), "Publishing /lr/imu/data ...");
 		publisherImu_ = this->create_publisher<sensor_msgs::msg::Imu>("/lr/imu/data", 10);
