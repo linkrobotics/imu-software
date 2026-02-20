@@ -1013,7 +1013,7 @@ bool imu::setZeroThreshold(const float zeroThreshold) {
 		if (setZeroThreshold_(zeroThreshold) == true) {
 			return true;
 		}
-		boost::this_thread::sleep_for(boost::chrono::milliseconds(10));
+		boost::this_thread::sleep_for(boost::chrono::milliseconds(100));
 	}
 	
 	return false;
