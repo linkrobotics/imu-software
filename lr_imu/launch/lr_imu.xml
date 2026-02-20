@@ -4,5 +4,5 @@
   	<param name="baud_rate" value="921600" />
   </node>
   
-  <node pkg="rviz2" exec="rviz2" name="rviz2_node" args="-d $(find-pkg-share lr_imu)/launch/lr_imu.rviz" />
+  <node if="false" pkg="rviz2" exec="rviz2" name="rviz2_node" args="-d $(find-pkg-share lr_imu)/launch/lr_imu.rviz" />
 </launch>
