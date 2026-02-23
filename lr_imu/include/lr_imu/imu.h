@@ -25,9 +25,7 @@
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/thread.hpp>
 
-#include <boost/enable_shared_from_this.hpp>
-
-class imu : public boost::enable_shared_from_this<imu> {
+class imu {
 
 protected:
 	bool connected = false;
@@ -111,32 +109,17 @@ protected:
 		{payloadIdDebugConfig, false}
 	};
 	
-	////////////////////////////////////////////////////////
-	// buffer sizes
+	//
+	
+	void loop();
+	
+	//
+	uint8_t* transmitBuffer = nullptr;
+	uint8_t* transmitPayload = nullptr;
 	const int maxBufferSize = 4096;
 	const int maxPayloadSize = 4096;
 	const int maxCalibrationDataSize = 1024;
 	
-	// loop
-	void loop();
-	
-	// asio read handler
-	void readHandler(  const boost::system::error_code& error,
-		    		std::size_t bytes_transferred);
-	unsigned char buffer = 0;
-	int state = 0;
-	
-	// receive buffers
-	uint16_t packetLen = 0;
-	int packetCounter = 0;
-	uint8_t* packetBuffer = nullptr;
-	uint16_t packetChecksum = 0;
-	
-	// transmit buffers
-	uint8_t* transmitBuffer = nullptr;
-	uint8_t* transmitPayload = nullptr;
-
-	////////////////////////////////////////////////////////
 	
 	bool loadSettings_();
 	bool saveSettings_();
@@ -176,8 +159,6 @@ protected:
 				float alpha_h,
 				float sigma_hs,
 				float sigma_z);
-				
-
 	
 public:
 	imu();
@@ -233,7 +214,7 @@ public:
 	uint32_t getCalibrationDataSize();
 	
 	
-	bool setZeroThreshold(const float zeroThreshold = 20.0e-3);
+	bool setZeroThreshold(const float zeroThreshold);
 	bool setDebugConfig(	const float sigma_g,
 				const float sigma_wg,
 				const float alpha_g,

@@ -24,17 +24,12 @@ imu::imu() {
 	transmitPayload = new uint8_t[maxPayloadSize];
 	
 	calibrationData = new float[maxCalibrationDataSize];
-	
-	packetBuffer = new uint8_t[maxPayloadSize]; 
-	
 }
 
 imu::~imu() {
 	delete [] transmitPayload;
 	delete [] transmitBuffer;
 	delete [] calibrationData;
-	
-	delete [] packetBuffer;
 }
 
 bool imu::processPacket(const unsigned char* receiveBuffer, const int n) {
@@ -343,98 +338,16 @@ bool imu::processPacket(const unsigned char* receiveBuffer, const int n) {
 	}
 }
 
-void imu::readHandler(  const boost::system::error_code& error_,
-  			    std::size_t bytes_transferred_) {
-	
-	//std::cout << "read handler: bytes_transferred = " << bytes_transferred_ << " state = " << state << std::endl;
-	
-	
-	if (bytes_transferred_ == 1) {
-		if (state == 0 && buffer == 'S') {
-			state = 1;
-			packetCounter = 0;
-			packetBuffer[packetCounter++] = buffer;
-		}
-		else if (state == 1) {
-			if (buffer == 'D' || buffer == 'G') {
-				// packet type is D or G
-				state = 2;
-				packetBuffer[packetCounter++] = buffer;
-			}
-			else {
-				// wrong packet
-				state = 0;
-			}
-		
-		}
-		else if (state == 2) {
-			packetLen = uint16_t(buffer);
-			state = 3;
-			packetBuffer[packetCounter++] = buffer;
-		}
-		else if (state == 3) {
-			packetLen |= (uint16_t(buffer) << 8);
-			state = 4; 
-			
-			packetBuffer[packetCounter++] = buffer;
-					
-		}
-		else if (state == 4) {
-			if (packetLen > 0 && packetLen <= maxPayloadSize) {
-				packetBuffer[packetCounter++] = buffer;
-				
-				if (packetCounter == packetLen) {
-					state = 0;
-					
-					mutex1.lock();
-					processPacket(packetBuffer, packetLen);
-					mutex1.unlock();
-				}
-				
-			}
-			else {
-				state = 0;
-			}
-		}
-		else {
-			state = 0;
-		}
-	}
-	else {
-		state = 0;
-	}
-	
-	try {
-		serialPtr->async_read_some(boost::asio::buffer(&buffer, 1), boost::bind(
-		                &imu::readHandler, shared_from_this(),
-		                boost::asio::placeholders::error,
-		                boost::asio::placeholders::bytes_transferred)
-		);
-	}
-	catch (...) {
-	}
-	
-}
-
 void imu::loop() {
-	serialPtr->async_read_some(boost::asio::buffer(&buffer, 1), boost::bind(
-		                &imu::readHandler, shared_from_this(),
-		                boost::asio::placeholders::error,
-		                boost::asio::placeholders::bytes_transferred)
-		            );
-	
-	boost::thread t(boost::bind(&boost::asio::io_service::run, &io));
-	
-		
 	
 	while (true) {
 		
-		
-		
-		/*if (false && connected == true) {
-			unsigned char* buffer = new unsigned char[maxPayloadSize];
-			////////////////////////////////
+		if (connected == true) {
 			
+			
+			
+			////////////////////////////////
+			unsigned char* buffer = new unsigned char[2048];
 			int n = 0;
 			//int packetSize = 0;
 			
@@ -455,7 +368,7 @@ void imu::loop() {
 					unsigned short length = 0;
 					bytesToUInt16(&buffer[2], &length);
 					
-					if (length <= maxPayloadSize && length >= 4) {
+					if (length < 256 && length >= 4) {
 					
 						waitForNBytes(length - 4);
 						n += readNBytes(length - 4, &buffer[4]);
@@ -471,19 +384,17 @@ void imu::loop() {
 				}
 			}
 			
-			
+			delete [] buffer;
 			
 			////////////////////////////////
 			
-			delete [] buffer;
+			
 			
 		}		
-		*/
 		
-		boost::this_thread::sleep_for(boost::chrono::milliseconds(100));
+		
+		boost::this_thread::sleep_for(boost::chrono::microseconds(10));
 	}
-	
-	
 }
 
 void imu::start() {	
@@ -537,7 +448,6 @@ bool imu::connect(const std::string port, const int baudRate, const int dataBits
 		
 		
 		connected = true;
-		
 	}
 	
 	return true;
@@ -1013,7 +923,7 @@ bool imu::setZeroThreshold(const float zeroThreshold) {
 		if (setZeroThreshold_(zeroThreshold) == true) {
 			return true;
 		}
-		boost::this_thread::sleep_for(boost::chrono::milliseconds(10));
+		boost::this_thread::sleep_for(boost::chrono::milliseconds(100));
 	}
 	
 	return false;
