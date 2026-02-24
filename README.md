@@ -10,7 +10,7 @@ Please calibrate IMU before first use by using the magnetometer calibration sect
 
 - Boost 1.74 : `apt install libboost-dev`
 
-- Qt 6.9 : `apt install qt6-base-dev` or https://doc.qt.io/qt-6/get-and-install-qt.html
+- Qt 6.9 : https://doc.qt.io/qt-6/get-and-install-qt.html
 
 - Eigen : `apt install libeigen3-dev`
 
@@ -32,7 +32,13 @@ Please calibrate IMU before first use by using the magnetometer calibration sect
  
    Follow the steps below to install and run the GUI.
 
-   1.1. Extract ```imu-gui-v1-0.zip``` to directory ```/path/to/imu/```.
+   1.1 Extract `imu-gui-v1-0.zip` into `/path/to/imu/` without creating an extra folder.
+
+   > Please replace `/path/to/` with your own directory.
+
+   ```bash
+   unzip imu-gui-v1-0.zip -d /path/to/imu/ && cd /path/to/imu/ && d=$(ls -d */ 2>/dev/null | head -n1) && [ -n "$d" ] && mv "$d"* . && rmdir "$d"
+   ```
 
    1.2. Define Qt library env. variables
    
@@ -57,6 +63,12 @@ Please calibrate IMU before first use by using the magnetometer calibration sect
 
    2.5. Start the driver node
    ```ros2 launch lr_imu lr_imu.xml```
+
+   >If ROS 2 reports `permission denied` for `/dev/ttyACM*`, run:
+   >```bash 
+   >sudo usermod -aG dialout $USER 
+   >```
+   >Then log out and log back in
 
    2.6. Published topics:
    - ```/lr/imu/data``` : Quaternion, accelerations, angular velocities
