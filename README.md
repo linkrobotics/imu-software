@@ -51,6 +51,10 @@ Please calibrate IMU before first use by using the magnetometer calibration sect
    2.4. Build
    ```colcon build```
 
+   2.5. Published topics:
+   - ```/lr/imu/data``` : Quaternion, accelerations, angular velocities
+   - ```/lr/imu/euler_angles``` : Euler angles (roll, pitch, yaw)
+
    2.5. Start the driver node
    ```ros2 launch lr_imu lr_imu.xml```
 
