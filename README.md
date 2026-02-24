@@ -32,8 +32,7 @@ Please calibrate IMU before first use by using the magnetometer calibration sect
  
    Follow the steps below to install and run the GUI.
 
-
-   1.2. Extract ```imu-gui-v1-0.zip``` to directory ```/path/to/imu/```.
+   1.1. Extract ```imu-gui-v1-0.zip``` to directory ```/path/to/imu/```.
 
    1.2. Define Qt library env. variables
    
