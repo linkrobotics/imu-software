@@ -10,7 +10,7 @@ Please calibrate IMU before first use by using the magnetometer calibration sect
 
 - Boost 1.74 : `apt-get install libboost-dev`
 
-- Qt6 : https://doc.qt.io/qt-6/get-and-install-qt.html
+- Qt 6.9 : https://doc.qt.io/qt-6/get-and-install-qt.html
 
 - ROS2 humble
 
