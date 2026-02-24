@@ -12,6 +12,8 @@ Please calibrate IMU before first use by using the magnetometer calibration sect
 
 - Qt 6.9 : https://doc.qt.io/qt-6/get-and-install-qt.html
 
+- Eigen : `apt-get install libeigen3-dev`
+
 - ROS2 humble
 
 
