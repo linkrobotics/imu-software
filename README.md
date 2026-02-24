@@ -8,11 +8,11 @@ Please calibrate IMU before first use by using the magnetometer calibration sect
 
 - Ubuntu 22.04
 
-- Boost 1.74 : `apt-get install libboost-dev`
+- Boost 1.74 : `apt install libboost-dev`
 
-- Qt 6.9 : https://doc.qt.io/qt-6/get-and-install-qt.html
+- Qt 6.9 : `apt install qt6-base-dev` or https://doc.qt.io/qt-6/get-and-install-qt.html
 
-- Eigen : `apt-get install libeigen3-dev`
+- Eigen : `apt install libeigen3-dev`
 
 - ROS2 humble
 
