@@ -37,8 +37,7 @@ Please calibrate IMU before first use by using the magnetometer calibration sect
 
    1.2. Extract ```imu-gui-v1-0.zip``` to a directory like ```/path/to/imu/```.
 
-   1.3. Change directory to ```bin``` 
-   ```/path/to/imu/bin```
+   1.3. Change directory to ```/path/to/imu/bin```
 
    1.4. Run the executable
    ```./IMU-GUI```
