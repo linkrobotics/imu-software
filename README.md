@@ -14,7 +14,7 @@ Please calibrate IMU before first use by using the magnetometer calibration sect
 
 - Eigen : `apt install libeigen3-dev`
 
-- ROS2 humble
+- ROS2 humble : https://docs.ros.org/en/humble/Installation.html
 
 
 ## Description of the folders:
